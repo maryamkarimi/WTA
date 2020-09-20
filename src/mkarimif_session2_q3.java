@@ -19,8 +19,8 @@ public class mkarimif_session2_q3 {
 
         public static String twoStrings(final String s1, final String s2) {
 
-            final int[] frequencyS1 = new int[CHAR_COUNT];
-            final int[] frequencyS2 = new int[CHAR_COUNT];
+            final boolean[] frequencyS1 = new boolean[CHAR_COUNT];
+            final boolean[] frequencyS2 = new boolean[CHAR_COUNT];
 
             int s1Index = 0;
             int s2Index = 0;
@@ -29,15 +29,15 @@ public class mkarimif_session2_q3 {
 
                 if (s1Index < s1.length()) {
                     char s1Char = s1.charAt(s1Index);
-                    frequencyS1[s1Char - 'a']++;
-                    if (frequencyS2[s1Char - 'a'] > 0) return Answer.YES.toString();
+                    frequencyS1[s1Char - 'a'] = true;
+                    if (frequencyS2[s1Char - 'a']) return Answer.YES.toString();
                 }
 
 
                 if (s2Index < s2.length()) {
                     char s2Char = s2.charAt(s2Index);
-                    frequencyS2[s2Char - 'a']++;
-                    if (frequencyS1[s2Char - 'a'] > 0) return Answer.YES.toString();
+                    frequencyS2[s2Char - 'a'] = true;
+                    if (frequencyS1[s2Char - 'a']) return Answer.YES.toString();
                 }
 
 
