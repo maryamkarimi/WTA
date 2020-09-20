@@ -18,11 +18,9 @@ public class mkarimif_session2_q2 {
                                                .mapToObj(a -> (char) a)
                                                .collect(Collectors.toSet());
 
-            if (characters.size() > 4) return 0;
-
             final Map<Set<Character>, StringBuilder> map = new HashMap<>();
 
-            // O(1) because max number of characters is 4
+            // O(1) because max number of characters is 26
             characters.forEach(character1 -> characters.stream()
                                                        .filter(character2 -> !character1.equals(character2))
                                                        .forEach(filteredChar -> map.put(new HashSet<>(Arrays.asList(character1, filteredChar)), new StringBuilder())));
@@ -32,7 +30,7 @@ public class mkarimif_session2_q2 {
             for (final Character c : s.toCharArray()) {
                 map.entrySet()
                    .stream()
-                   .filter(entry -> !entry.getKey().contains(c))
+                   .filter(entry -> entry.getKey().contains(c))
                    .forEach(entry -> entry.getValue().append(c));
             }
 
@@ -75,10 +73,13 @@ public class mkarimif_session2_q2 {
         checkTestCase("abcd", 2);
 
         // Test Case 4
-        checkTestCase("abcde", 0);
+        checkTestCase("asdcbsdcagfsdbgdfanfghbsfdab", 8);
 
-        // Test Case 4
+        // Test Case 5
         checkTestCase("hajjhkjajhkkjakhaha", 10);
+
+        // Test Case 6
+        checkTestCase("abccba", 0);
 
         final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
