@@ -1,4 +1,3 @@
-import java.io.IOException;
 
 /**
  * Author: Maryam Karimi
@@ -46,7 +45,7 @@ public class mkarimif_session3_q1 {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         final ListNode node1 = new ListNode(1);
         final ListNode node2 = new ListNode(2);
