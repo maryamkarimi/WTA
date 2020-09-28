@@ -12,8 +12,10 @@ public class mkarimif_session3_q2 {
 
         private final Stack<Integer> pushStack = new Stack();
         private final Stack<Integer> popStack = new Stack();
+        private Integer front;
 
         public void push(final int val) {
+            if (pushStack.isEmpty()) front = val;
             pushStack.push(val);
         }
 
@@ -30,13 +32,9 @@ public class mkarimif_session3_q2 {
 
         public int peek() {
             if (!popStack.isEmpty()) {
-                return popStack.pop();
+                return popStack.peek();
             }
-
-            while (!pushStack.isEmpty()) {
-                popStack.push(pushStack.pop());
-            }
-            return popStack.peek();
+            return front;
         }
 
         public boolean empty() {
@@ -70,7 +68,5 @@ public class mkarimif_session3_q2 {
                 System.out.println("empty works");
             }
         }
-
-
     }
 }
