@@ -1,7 +1,6 @@
 package session3;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Author: Maryam Karimi
@@ -15,41 +14,25 @@ public class mkarimif_session3_q3 {
 
         public static int leastInterval(final char[] tasks, final int n) {
 
-            final int[] frequency = new int[CHAR_NUM];
+            final int[] frequencies = new int[CHAR_NUM];
             for (char task : tasks) {
-                frequency[task - 'A']++;
+                frequencies[task - 'A']++;
             }
 
             final PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.reverseOrder());
 
-            for (final int freq : frequency) {
-                if (freq > 0) {
-                    queue.add(freq);
-                }
+            for (int f : frequencies) {
+                if (f > 0) queue.add(f);
             }
 
-            int counter = 0;
+            int maxFrequency = queue.poll();
+            int idle = (maxFrequency - 1) * n;
+
             while (!queue.isEmpty()) {
-
-                final int queueSize = queue.size();
-                final int[] temp = new int[n + 1];
-                for (int i = 0; i < n + 1; i++) {
-                    if (!queue.isEmpty()) {
-                        temp[i] = queue.poll();
-                    }
-                }
-
-                for (final int f : temp) {
-                    if (f - 1 > 0) {
-                        queue.add(f - 1);
-                    }
-                }
-
-
-                counter += queue.isEmpty() ? queueSize : n + 1;
+                idle -= Math.min(maxFrequency - 1, queue.poll());
             }
 
-            return counter;
+            return Math.max(0, idle) + tasks.length;
         }
     }
 
