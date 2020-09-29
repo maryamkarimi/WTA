@@ -1,6 +1,8 @@
 package session3;
 
-import java.util.*;
+
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 /**
  * Author: Maryam Karimi
