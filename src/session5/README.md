@@ -14,7 +14,7 @@ Space Complexity: O(n) to keep the dp array
 
 ### Question 2: [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 
-Explanation: I took a dynamic programming approach (Kadane's algorithm). Starting from the beginning of the array, calculated the maximum sum up to an index and stored it in the same index of the array. The maximum sum for each index will either be the value at the index, or the max sum of values prior to the index plus the value at the index (whichever is larger). I used a max variable to keep track of the maximum sums encountered throughout the whole loop, which is the final result to be returned. 
+Explanation: I took a dynamic programming approach (Kadane's algorithm). Starting from the beginning of the array, calculated the maximum sum up to an index and stored it in the same index of the array. The maximum sum for each index will either be the value at the index, or the max sum of values prior to the index plus the value at the index (whichever is larger). I used a max variable to keep track of the maximum sum encountered throughout the whole loop, which is the final result to be returned. 
 ```
 Time Complexity: O(n) loop through the whole array once
 
